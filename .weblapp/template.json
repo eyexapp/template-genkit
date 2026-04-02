@@ -1,0 +1,34 @@
+{
+  "name": "genkit",
+  "displayName": "Firebase Genkit",
+  "description": "Firebase Cloud Functions with Genkit AI framework, dotprompt patterns, and dual provider support",
+  "category": "backend",
+  "language": "typescript",
+  "framework": "genkit",
+  "stack": ["firebase", "genkit", "cloud-functions", "zod", "google-ai", "vertex-ai"],
+  "features": ["ai-flows", "dotprompt", "tool-calling", "streaming", "dual-provider", "cloud-functions"],
+  "commands": {
+    "dev": "npx genkit start",
+    "build": "npm run build",
+    "test": "npm test",
+    "lint": "npm run lint"
+  },
+  "packageManager": "npm",
+  "ci": {
+    "workflowTemplate": "genkit",
+    "runner": "ubuntu-latest",
+    "runtime": {
+      "name": "node",
+      "version": "20",
+      "setup": "actions/setup-node@v4",
+      "cache": "npm"
+    },
+    "services": {},
+    "steps": {
+      "install": "npm ci",
+      "build": "npm run build",
+      "test": "npm test",
+      "lint": "npm run lint"
+    }
+  }
+}
